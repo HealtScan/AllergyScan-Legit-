@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Scan - AllergyScan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .hero {
+            background: url('https://images.unsplash.com/photo-1517242022020-1b0c1c1c1c1c') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+        }
+        .barcode-scan {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .barcode-scan input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+        }
+        .barcode-scan button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .box {
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            width: 30%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        #allergy-icon {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: #888888;
+            border-radius: 50%;
+            display: block;
+            z-index: 1000;
+            cursor: pointer;
+            box-shadow: inset 0 0 0 2px white; /* inner outline resembling empty profile */
+        }
+        #allergy-icon:hover {
+            background-color: #666666;
+        }
+    </style>
+</head>
+<body>
+    <a href="Allergi-Preferences-Form-Final.html" id="allergy-icon" title="Allergi Præferencer"></a>
+    <header>
+        <h1>Scan en stregkode</h1>
+        <nav>
+            <a href="Index-homepage-Updated.html".html">Hjem</a>
+            <a href="#">Stregkode scanning</a>
+            <a href="Produkt-liste.html">Produkter</a>
+            <a href="Om-Os">Om os</a>
+            <a href="Kontakt-Os.html">Kontakt</a>
+        </nav>
+    </header>
+    <div class="hero">
+        <h1 style="color: black;">Scan dit produkt for allergener</h1>
+    </div>
+    <div class="barcode-scan">
+        <h2>Indtast eller scan stregkoden</h2>
+        <input type="text" id="barcodeInput" placeholder="Indtast eller scan stregkoden" />
+        <p>Indtast numrene fra stregkoden på et produkt for at se siden med ernæringsoplysninger og relevante allergiinformationer.</p>
+    <button id="scanButton" onclick="scanBarcode()">Scan Barcode</button>
+ 
+    </div>
+    <script>
+        function scanBarcode() {
+            const barcode = document.getElementById('barcodeInput').value;
+            // Redirect to a specific file based on the barcode input
+            if (barcode === "8949461894984") {
+                window.location.href = "Peanut-Butter.html";
+            } else if (barcode === "6515648916") {
+                window.location.href = "Toastbrød.html";
+            } else if (barcode === "6548964631668") {
+                window.location.href = "Cheasy-Skyr.html";
+            } else if (barcode) {
+                window.location.href = `product_info.html?barcode=${barcode}`;
+            } else {
+                alert('Please enter a barcode.');
+            }
+        }
+    </script>
+    <footer>
+ 
+        <p>&copy; 2023 AllergyScan. Alle rettigheder forbeholdes.</p>
+    </footer>
+</body>
+</html>

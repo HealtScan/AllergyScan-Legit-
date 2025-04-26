@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Toastbrød Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .content {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #4CAF50;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 40px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #888888;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #666666;
+        }
+        #allergy-icon {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: #888888;
+            border-radius: 50%;
+            display: block;
+            z-index: 1000;
+            cursor: pointer;
+            box-shadow: inset 0 0 0 2px white; /* inner outline resembling empty profile */
+        }
+        #allergy-icon:hover {
+            background-color: #666666;
+        }
+    </style>
+</head>
+<body>
+    <a href="Allergi-Preferences-Form-Final.html" id="allergy-icon" title="Allergi Præferencer"></a>
+    <header>
+        <h1 style="color: white;">Toastbrød Information</h1>
+        <nav>
+            <a href="Index-homepage-Updated.html">Hjem</a>
+            <a href="Stregkode-Scan.html">Stregkode Scan</a>
+            <a href="Om-Os.html">Om os</a>
+            <a href="Kontakt-Os.html">Kontakt</a>
+        </nav>
+    </header>
+    <a href="Stregkode-Scan.html" class="back-button" style="position: absolute; top: 120px; left: 10px;">Tilbage</a>
+    <div class="content" style="margin-top: 80px;">
+        <h2>Hvad er Toastbrød?</h2>
+        <p>Toastbrød er en type brød, der er skåret i skiver og ofte brugt til at lave toast eller sandwiches. Det er kendt for sin bløde tekstur og lette smag.</p>
+
+        <h2>Allergier relateret til Toastbrød</h2>
+        <p>Toastbrød kan indeholde gluten og andre ingredienser, der kan forårsage allergiske reaktioner hos nogle personer. Allergier kan påvirke:</p>
+        <ul>
+            <li>Personer med glutenintolerance eller cøliaki</li>
+            <li>Personer med hvedeallergi</li>
+            <li>Personer med følsomhed over for tilsætningsstoffer</li>
+        </ul>
+        <p>Symptomer kan inkludere maveproblemer, hudirritation og vejrtrækningsproblemer. Det er vigtigt at læse ingredienslisten nøje, hvis du har allergier.</p>
+
+        <h2>Næringsværdier for Toastbrød (pr. 2 skiver)</h2>
+        <ul>
+            <li>Kalorier: 140-160 kcal</li>
+            <li>Protein: 4-6 gram</li>
+            <li>Fedt: 1-3 gram</li>
+            <li>Kulhydrater: 25-30 gram</li>
+            <li>Fibre: 1-3 gram</li>
+            <li>Sukker: 2-4 gram</li>
+            <li>Vitaminer og mineraler: Jern, B-vitaminer</li>
+        </ul>
+    </div>
+    <footer>
+        <p>&copy; 2023 AllergyScan. Alle rettigheder forbeholdes.</p>
+    </footer>
+    <div id="allergy-warning-star" title="Allergy Alert" style="display:none; position: fixed; top: 10px; right: 10px; font-size: 24px; color: gold; z-index: 1100; user-select: none;">⭐</div>
+    <script>
+        // Check allergy preferences and show star if brød allergy detected
+        window.onload = function() {
+            const allergies = localStorage.getItem('userAllergies')?.toLowerCase() || '';
+            const preferences = localStorage.getItem('userPreferences')?.toLowerCase() || '';
+            const combined = allergies + ' ' + preferences;
+            if (combined.includes('brød')) {
+                document.getElementById('allergy-warning-star').style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>

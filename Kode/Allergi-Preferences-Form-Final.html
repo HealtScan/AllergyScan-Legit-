@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Allergi Præferencer - AllergyScan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: white;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            padding: 40px 60px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            border-radius: 4px;
+            resize: vertical;
+            font-size: 1em;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 30px;
+            background-color: #888888;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            float: right;
+        }
+        button:hover {
+            background-color: #666666;
+        }
+        .message {
+            margin-top: 15px;
+            text-align: center;
+            color: #4CAF50;
+            font-weight: bold;
+            clear: both;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Allergi og præferencer</h1>
+        <nav>
+            <a href="Index-homepage.html">Hjem</a>
+            <a href="Stregkode-Scan.html">Stregkode scanning</a>
+            <a href="Produkt-liste.html">Produkter</a>
+            <a href="Om-Os.html">Om os</a>
+            <a href="Kontakt-Os.html">Kontakt</a>
+        </nav>
+    </header>
+    <main>
+        <label for="allergies">Indtast dine allergier:</label>
+        <textarea id="allergies" placeholder="Skriv her..."></textarea>
+        <label for="preferences">Indtast dine fødevarepræferencer, du ønsker at undgå:</label>
+        <textarea id="preferences" placeholder="Skriv her..."></textarea>
+        <button type="button" onclick="saveData()">Gem oplysninger</button>
+        <div class="message" id="message"></div>
+    </main>
+    <footer>
+        <p>&copy; 2023 AllergyScan. Alle rettigheder forbeholdes.</p>
+    </footer>
+    <script>
+        const allergiesTextarea = document.getElementById('allergies');
+        const preferencesTextarea = document.getElementById('preferences');
+        const messageDiv = document.getElementById('message');
+
+        // Load saved data from localStorage on page load
+        window.onload = function() {
+            const savedAllergies = localStorage.getItem('userAllergies');
+            if (savedAllergies) {
+                allergiesTextarea.value = savedAllergies;
+            }
+            const savedPreferences = localStorage.getItem('userPreferences');
+            if (savedPreferences) {
+                preferencesTextarea.value = savedPreferences;
+            }
+        };
+
+        // Save data to localStorage
+        function saveData() {
+            const allergies = allergiesTextarea.value.trim();
+            const preferences = preferencesTextarea.value.trim();
+            localStorage.setItem('userAllergies', allergies);
+            localStorage.setItem('userPreferences', preferences);
+            messageDiv.textContent = 'Oplysninger gemt!';
+            setTimeout(() => {
+                messageDiv.textContent = '';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

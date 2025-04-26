@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Frontpage - AllergyScan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #6b8e23, #4caf50);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 60px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .login-button {
+            background-color: #4CAF50;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.5rem;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.6);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .login-button:hover {
+            background-color: #3e8e41;
+            box-shadow: 0 8px 20px rgba(62, 142, 65, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Velkommen til AllergyScan</h1>
+        <a href="Login.html" class="login-button">Log ind</a>
+        <a href="Ny-Bruger.html" class="login-button" style="margin-left: 20px; background-color: #3b7a3b;">Ny bruger</a>
+    </div>
+</body>
+</html>

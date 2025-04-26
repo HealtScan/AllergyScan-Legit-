@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ny Bruger - AllergyScan</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #d3d3d3; /* light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .register-popup {
+            background-color: #4a4a4a; /* dark gray */
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            width: 320px;
+            color: white;
+            box-sizing: border-box;
+        }
+        .register-popup h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .register-popup label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .register-popup input[type="text"],
+        .register-popup input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .register-popup button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .register-popup button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: #ff6666;
+            margin-bottom: 15px;
+            display: none;
+            text-align: center;
+        }
+        #allergy-icon {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: #888888;
+            border-radius: 50%;
+            display: block;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        #allergy-icon:hover {
+            background-color: #666666;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="register-popup">
+        <h2>Ny Bruger</h2>
+        <div class="error-message" id="errorMessage">Udfyld alle felter korrekt</div>
+        <label for="username">Brugernavn</label>
+        <input type="text" id="username" placeholder="Indtast brugernavn" />
+        <label for="password">Adgangskode</label>
+        <input type="password" id="password" placeholder="Indtast adgangskode" />
+        <label for="confirmPassword">Bekræft adgangskode</label>
+        <input type="password" id="confirmPassword" placeholder="Bekræft adgangskode" />
+        <button onclick="handleRegister()">Opret bruger</button>
+    </div>
+    <script>
+        function handleRegister() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const confirmPassword = document.getElementById('confirmPassword').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (!username || !password || !confirmPassword) {
+                errorMessage.textContent = 'Udfyld alle felter korrekt';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            if (password !== confirmPassword) {
+                errorMessage.textContent = 'Adgangskoderne matcher ikke';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            errorMessage.style.display = 'none';
+            // Placeholder for actual registration logic
+            alert('Bruger oprettet: ' + username);
+            // Redirect to login page after registration
+            window.location.f = 'Index-homepage-Updated.html';
+        }
+    </script>
+</body>
+</html>

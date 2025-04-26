@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login - AllergyScan</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #d3d3d3; /* light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .login-popup {
+            background-color: #4a4a4a; /* dark gray */
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            width: 320px;
+            color: white;
+            box-sizing: border-box;
+        }
+        .login-popup h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .login-popup label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .login-popup input[type="text"],
+        .login-popup input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .login-popup button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .login-popup button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: #ff6666;
+            margin-bottom: 15px;
+            display: none;
+            text-align: center;
+        }
+        #allergy-icon {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: #888888;
+            border-radius: 50%;
+            display: block;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        #allergy-icon:hover {
+            background-color: #666666;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="login-popup">
+        <h2>Login</h2>
+        <div class="error-message" id="errorMessage">Udfyld begge felter</div>
+        <label for="username">Brugernavn</label>
+        <input type="text" id="username" placeholder="Indtast brugernavn" />
+        <label for="password">Adgangskode</label>
+        <input type="password" id="password" placeholder="Indtast adgangskode" />
+        <button onclick="handleLogin()">Log ind</button>
+    </div>
+    <script>
+        function handleLogin() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('errorMessage');
+            if (username && password) {
+                errorMessage.style.display = 'none';
+                // Redirect to index page
+                window.location.href = 'Index-homepage-Updated.html';
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
